@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: cursive;
+  background-color: slateblue;
+}
+
+.calander-container {
+  background-color: white;
+  width: 300px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, .3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+}
+
+.date-info {
+  text-align: center;
+  flex-grow: 1;
+}
+
+.month-name {
+  margin: 0;
+  background-color: orangered;
+  color: aliceblue;
+  padding: 10px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.day-name {
+  font-size: 20px;
+  color: darkgray;
+}
+
+.day-number {
+  font-size: 80px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.year {
+  margin: 20px 0;
+  font-size: 20px;
+  color: darkgray;
+  font-weight: 500;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: orangered;
+  padding: 5px;
+}
+
+button:hover {
+  transform: scale(1.1);
+  transition: all 0.2s;
+}
+
+.prev-btn, .next-btn {
+  font-size: 25px;
+}
+
+/* Style for 'Today' button */
+.today-btn {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: orangered;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.today-btn:hover {
+  background-color: darkorange;
+}

@@ -1,0 +1,9 @@
+/* block element takes the entire width */
+div{  
+  background-color: aqua;
+}
+
+/* inline element takes the content width only and place the cursor in same line */
+span{
+  background-color: brown;
+}

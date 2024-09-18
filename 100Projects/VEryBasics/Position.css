@@ -1,0 +1,23 @@
+/* by default position is static */
+/* RELATIVE it will move based on parent element  */
+/* ABSOLUTE it is moved based on browser requirement */
+
+/* https://www.youtube.com/shorts/befFr5NWZbA */
+/* https://www.youtube.com/watch?v=Pp7UXS3P6jY */
+#box1{
+  border: 1px solid;
+  height: 300px;
+  width: 300px;
+  background-color: aqua;
+  position: relative;
+  top: 30px;
+}
+
+#box2{
+  border: 1px solid;
+  height: 100px;
+  width: 100px;
+  background-color: red;
+  position:absolute;
+  top: 20px;
+}

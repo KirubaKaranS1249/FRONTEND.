@@ -1,0 +1,21 @@
+/* BY DEFAULT HEIGHT IS AUTO */
+
+/* https://www.youtube.com/watch?v=QctF-i4-GuM&t=304s  */
+
+*{
+  box-sizing: border-box;
+}
+.container{
+  background-color: rgb(25, 212, 50);
+  height: 100vh;
+}
+.box{
+  background-color: azure;
+  border: 2px solid;     /*  if border is there float will not work */
+  height: auto;
+  width: 50%;
+  float: left;          /*  if border is there float will not work */
+  padding: 25px; 
+  text-align: center;
+  max-height: 75%;
+}

@@ -1,0 +1,46 @@
+body {
+  min-height: 800px;
+  border: 8px solid black;
+  display:flex;
+  /* flex-direction: row-reverse;    
+  justify-content: flex-end;  /* space-evenly,flex-start,flex-end,row,row-reverse
+  align-items: center; */
+/* 
+align-items => cross axis  or y axis
+align-content => main axis or x axis
+*/
+
+  gap: 20px;  /* rowgap , columngap*/
+  /* flex-wrap: wrap;  wrap it makes mobile responsive :: nowrap box will  be in a single line */
+  align-content: center;
+}
+
+.box{
+  display: flex;
+  justify-content: center;  /* mainaxis or x axis control */
+  align-items: center;  /* crossaxis or y axis control */
+  
+  height: 200px;
+  width: 200px;
+  background-color: blue;
+  font-size: 40pt;
+  
+}
+
+@media(max-width: 904px){
+  body{
+    flex-wrap: wrap;
+  }
+}
+
+
+
+
+/*
+// to make total web page in to vertical direction
+body{
+display:flex;
+flex-direction:column;
+align-item:center;
+}
+ */

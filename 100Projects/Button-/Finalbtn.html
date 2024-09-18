@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Mode Toggle and Button Ripple Effect</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: aliceblue;
+      font-family: sans-serif;
+      transition: background-color 0.4s, color 0.4s;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      gap: 20px; /* Space between the dark mode toggle and button */
+    }
+
+    .input {
+      visibility: hidden;
+    }
+
+    .label {
+      position: relative;
+      width: 80px;
+      height: 40px;
+      background-color: aquamarine;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .circle {
+      width: 34px;
+      background-color: black;
+      height: 34px;
+      border-radius: 50%;
+      top: 3px;
+      position: absolute;
+      left: 3px;
+      transition: transform 0.4s;
+    }
+
+    .input:checked + .label .circle {
+      transform: translateX(40px);
+      background-color: wheat;
+    }
+
+    .input:checked + .label {
+      background-color: salmon;
+    }
+
+    .btn {
+      background-color: pink;
+      padding: 20px 40px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, .3);
+      text-decoration: none;
+      color: black;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      background-color: orangered;
+      width: 0;
+      height: 0;
+      left: var(--xPos);
+      top: var(--yPos);
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      transition: width 0.5s, height 0.5s;
+    }
+
+    .btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Dark Mode Toggle -->
+    <input type="checkbox" id="dark-mode" class="input">
+    <label for="dark-mode" class="label">
+      <div class="circle"></div>
+    </label>
+
+    <!-- Button with Ripple Effect -->
+    <a href="#" id="toggle-button" class="btn"><span>Button</span></a>
+  </div>
+
+  <script>
+    const inputEl = document.querySelector(".input");
+    const bodyEl = document.querySelector("body");
+    const btnEl = document.querySelector("#toggle-button");
+
+    // Load the initial state from localStorage
+    const savedMode = JSON.parse(localStorage.getItem("mode"));
+    inputEl.checked = savedMode !== null ? savedMode : false;
+    updateBody();
+
+    function updateBody() {
+      if (inputEl.checked) {
+        bodyEl.style.backgroundColor = "black";
+        bodyEl.style.color = "white"; // Optional: Change text color in dark mode
+      } else {
+        bodyEl.style.backgroundColor = "aliceblue";
+        bodyEl.style.color = "black"; // Optional: Change text color in light mode
+      }
+    }
+
+    inputEl.addEventListener("input", () => {
+      updateBody();
+      updateLocalStorage();
+    });
+
+    function updateLocalStorage() {
+      localStorage.setItem("mode", JSON.stringify(inputEl.checked));
+    }
+
+    // Toggle dark mode when button is clicked
+    btnEl.addEventListener("click", () => {
+      inputEl.checked = !inputEl.checked;
+      updateBody();
+      updateLocalStorage();
+    });
+
+    // Ripple Effect for Button
+    btnEl.addEventListener("mouseover", (event) => {
+      const x = event.pageX - btnEl.offsetLeft;
+      const y = event.pageY - btnEl.offsetTop;
+
+      btnEl.style.setProperty("--xPos", x + "px");
+      btnEl.style.setProperty("--yPos", y + "px");
+    });
+  </script>
+</body>
+</html>

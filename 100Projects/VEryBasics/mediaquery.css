@@ -1,0 +1,21 @@
+h1 {
+  color: green;
+}
+
+@media print {
+  h1 {
+    color: red;
+  }
+}
+
+@media print and (orientation: portrait) {
+  h1 {
+    color: yellow;
+  }
+}
+
+@media screen and (max-width:600px) {
+  h1{
+    color:blue;
+  }
+}

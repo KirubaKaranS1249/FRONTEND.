@@ -1,0 +1,18 @@
+/* https://www.youtube.com/watch?v=rBWA_t-KnKk */
+
+body{
+  margin: 0;
+}
+.box{
+  border: 5px solid;
+  font-size: 5em;
+  width: 250px;
+  height: 250px;
+   margin: auto;  /* fix aat centre it makes webpage more responsive when you drag change the screen size content will be always in center only */
+}
+#box1{
+  background-color: aqua;
+}
+#box2{
+  background-color: brown;
+}
